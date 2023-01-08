@@ -1,0 +1,7 @@
+$feature-flags: (
+	grid-columns-16: true,
+);
+
+@use "@carbon/styles/scss/grid";
+
+@include grid.flex-grid();
