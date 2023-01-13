@@ -5,7 +5,7 @@ export default () => {
   const metadata: Metadata = {
     ['application-name']: "  ",
     // charset?: string;
-    ['color-scheme']: 'normal', 
+    ['color-scheme']: 'normal',
     creator: ["nranjan@embodium.org", "engineering@embodium.org"],
     custom: [{ alias: 'property', name: 'og:property1', content: 'Nalin', additional: { 'k1': "1" } }],
     description: "A library developed by Embodium for accessing indexedDB",
@@ -16,7 +16,7 @@ export default () => {
       ['content-language']: 'hi-hi',
       ['content-type']: 'text/html',
       ['default-style']: 'none',
-      ['refresh']: '-1',
+      refresh: { interval: -3, url: "/" },
       ['set-cookie']: 'xxx',
       ['x-ua-compatible']: 'IE=edge',
       ['content-security-policy']: ''
