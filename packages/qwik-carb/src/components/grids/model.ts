@@ -16,7 +16,7 @@ export type GridSettingsContext = {
    */
   readonly mode: "flexbox" | "css-grid";
 
-  /**
+   /**
    * Specify whether subgrid should be enabled
    */
   readonly subgrid: boolean;
@@ -26,3 +26,15 @@ export type GridSettingProps = GridSettingsContext;
 
 export const gridSettingsContext =
   createContext<GridSettingsContext>("grid-context");
+
+export type Condensable = {
+    readonly condensed?: boolean;
+}
+
+export type Narrowable = {
+    readonly narrow?: boolean;
+}
+
+export type Fullwidthable = {
+    readonly fullwidth?: boolean;
+}

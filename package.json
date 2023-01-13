@@ -1,5 +1,5 @@
 {
-  "name": "@embodium/web",
+  "name": "@embodium-web/web-interface",
   "version": "0.0.1",
   "private": true,
   "workspaces": [

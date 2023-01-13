@@ -24,7 +24,6 @@ export const Column = component$<ColumnProps>((props: ColumnProps) => {
       },
     ],
   });
-  // console.log("Col Mode", mode, className);
 
   return (
     <>

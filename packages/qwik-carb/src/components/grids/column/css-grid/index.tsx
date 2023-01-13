@@ -1,4 +1,4 @@
-import { CssColumnProps } from "./model";
+import { CssColumnProps } from "../model";
 import { prepare_classes } from "../../utils";
 import { component$, Slot } from "@builder.io/qwik";
 import { getClassNameForBreakpoints, getClassNameForSpan } from "../utils";
