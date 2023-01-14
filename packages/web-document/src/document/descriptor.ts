@@ -1,9 +1,8 @@
-import { Metadata } from "./metadata";
-import { HeaderDescriptor } from "../header/descriptor";
+import { BodyDescriptor } from "../body/descriptor";
+import { HeadDescriptor } from "../head/descriptor";
 
 export type DocumentDescriptor = {
     readonly lang?: string;
-    readonly metadata?: Metadata;
-    readonly header?: HeaderDescriptor;
-    readonly noFooter?: boolean;
+    readonly head?: HeadDescriptor;
+    readonly body?: BodyDescriptor;
 }

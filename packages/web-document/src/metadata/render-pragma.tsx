@@ -1,9 +1,9 @@
 import { PragmaDirective } from "./pragma";
 
-export const render_pragma = (lang?: string, pragma?: PragmaDirective) => {
+export const render_pragma = (pragma?: PragmaDirective) => {
   return <>
     {/* Metadata: Pragma Directives */}
-    <meta http-equiv="content-language" content={(pragma?.['content-language']?.trim() ?? "") || (lang ?? "") || "en-us"} />
+    <meta http-equiv="content-language" content={(pragma?.['content-language']?.trim() ?? "") || "en-us"} />
     {pragma?.['content-type']?.trim() && <meta http-equiv="content-type" content={pragma?.['content-type']?.trim() ?? ""} />}
     {pragma?.['default-style']?.trim() && <meta http-equiv="default-style" content={pragma?.['default-style']?.trim() ?? ""} />}
     {pragma?.refresh && typeof pragma?.refresh === "number" && <meta http-equiv="refresh" content={`${(pragma?.refresh ?? -1)}`} />}
