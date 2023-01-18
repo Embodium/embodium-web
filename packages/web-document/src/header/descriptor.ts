@@ -1,5 +1,5 @@
+import { GlobalAttributes } from "../global/props";
+
 export type HeaderDescriptor = {
-    readonly id?: string;
-    readonly noHeader?: boolean;
-    readonly classes?: Array<string>;
+    readonly attributes?: GlobalAttributes;
 }

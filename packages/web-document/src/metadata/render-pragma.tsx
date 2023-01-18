@@ -9,7 +9,8 @@ export const render_pragma = (pragma?: PragmaDirective) => {
     {pragma?.refresh && typeof pragma?.refresh === "number" && <meta http-equiv="refresh" content={`${(pragma?.refresh ?? -1)}`} />}
     {pragma?.refresh && typeof pragma?.refresh === "object" && <meta http-equiv="refresh" content={`${pragma?.refresh?.interval};${pragma?.refresh?.url}`} />}
 
-    {pragma?.['set-cookie']?.trim() && <meta http-equiv="set-cookie" content={pragma?.['set-cookie']?.trim() ?? ""} />}
+    {/* http-equiv set-cookie is deprecated. silent on FF but errors in chrome */}
+    {/* {pragma?.['set-cookie']?.trim() && <meta http-equiv="set-cookie" content={pragma?.['set-cookie']?.trim() ?? ""} />} */}
     {pragma?.['x-ua-compatible']?.trim() && <meta http-equiv="x-ua-compatible" content={pragma?.['x-ua-compatible']?.trim() ?? ""} />}
     {pragma?.['content-security-policy']?.trim() && <meta http-equiv="content-security-policy" content={pragma?.['content-security-policy']?.trim() ?? ""} />}
 
