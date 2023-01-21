@@ -1,0 +1,29 @@
+.wl-header {
+    min-height: 10vh;
+    grid-column: 1 / 4;
+    background-color: red;
+}
+
+.wl-main {
+    font-size: xx-large;
+    background-color: purple;
+    grid-column: 2 / 3;
+}
+
+.wl-nav {
+    grid-column: 1 / 2;
+    background-color: green;
+    min-width: 30vh;
+}
+
+.wl-aside {
+    grid-column: 3 / 4;
+    background-color: yellow;
+    min-width: 30vh;
+}
+
+.wl-footer {
+    grid-column: 1 / 4;
+    background-color: goldenrod;
+    min-height: 10vh;
+}

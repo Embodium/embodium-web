@@ -5,13 +5,13 @@ importers:
   .:
     specifiers:
       eslint-config-custom: workspace:*
-      prettier: latest
-      rimraf: latest
-      turbo: latest
+      prettier: ^2.8.3
+      rimraf: ^4.1.1
+      turbo: ^1.7.0
     devDependencies:
       eslint-config-custom: link:packages/eslint-config-custom
       prettier: 2.8.3
-      rimraf: 4.1.0
+      rimraf: 4.1.1
       turbo: 1.7.0
 
   packages/eslint-config-custom:
@@ -163,6 +163,44 @@ importers:
       typescript: 4.9.4
       undici: 5.14.0
       vite: 4.0.3_@types+node@18.11.18
+
+  packages/web-lens:
+    specifiers:
+      '@builder.io/qwik': 0.16.2
+      '@types/eslint': 8.4.10
+      '@types/node': ^18.11.18
+      '@types/node-fetch': latest
+      '@typescript-eslint/eslint-plugin': 5.48.0
+      '@typescript-eslint/parser': 5.48.0
+      eslint: 8.31.0
+      eslint-config-custom: workspace:*
+      eslint-plugin-qwik: latest
+      node-fetch: 3.3.0
+      np: 7.6.1
+      prettier: 2.8.1
+      sass: ^1.57.1
+      tsconfig: workspace:*
+      typescript: 4.9.4
+      undici: 5.14.0
+      vite: 4.0.3
+    devDependencies:
+      '@builder.io/qwik': 0.16.2_undici@5.14.0
+      '@types/eslint': 8.4.10
+      '@types/node': 18.11.18
+      '@types/node-fetch': 2.6.2
+      '@typescript-eslint/eslint-plugin': 5.48.0_k73wpmdolxikpyqun3p36akaaq
+      '@typescript-eslint/parser': 5.48.0_iukboom6ndih5an6iafl45j2fe
+      eslint: 8.31.0
+      eslint-config-custom: link:../eslint-config-custom
+      eslint-plugin-qwik: 0.16.2_eslint@8.31.0
+      node-fetch: 3.3.0
+      np: 7.6.1
+      prettier: 2.8.1
+      sass: 1.57.1
+      tsconfig: link:../tsconfig
+      typescript: 4.9.4
+      undici: 5.14.0
+      vite: 4.0.3_ovmyjmuuyckt3r3gpaexj2onji
 
 packages:
 
@@ -4191,8 +4229,8 @@ packages:
     dependencies:
       glob: 7.2.3
 
-  /rimraf/4.1.0:
-    resolution: {integrity: sha512-ZJdkUR5/dRrRJHdcSKJLrpRn6tVjl9ALxd4yrTCxFsMpjQNzwHF6GLqMsuEzEYIXxHlFPDSk21Vr8VPuFBEz0g==}
+  /rimraf/4.1.1:
+    resolution: {integrity: sha512-Z4Y81w8atcvaJuJuBB88VpADRH66okZAuEm+Jtaufa+s7rZmIz+Hik2G53kGaNytE7lsfXyWktTmfVz0H9xuDg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -4895,6 +4933,41 @@ packages:
       postcss: 8.4.21
       resolve: 1.22.1
       rollup: 3.9.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite/4.0.3_ovmyjmuuyckt3r3gpaexj2onji:
+    resolution: {integrity: sha512-HvuNv1RdE7deIfQb8mPk51UKjqptO/4RXZ5yXSAvurd5xOckwS/gg8h9Tky3uSbnjYTgUm0hVCet1cyhKd73ZA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 18.11.18
+      esbuild: 0.16.15
+      postcss: 8.4.21
+      resolve: 1.22.1
+      rollup: 3.9.1
+      sass: 1.57.1
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
