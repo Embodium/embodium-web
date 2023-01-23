@@ -1,6 +1,6 @@
 import { Launcher } from "../launcher";
 import { WebLensProps } from "./props";
-import { lens_store, WebLensStore } from "./store";
+import { WebLensStore } from "./store";
 import compStyles from "./main.scss?inline";
 import holyGrailStyles from "../layouts/holy-grail.scss?inline";
 import { component$, useStore, useStyles$ } from "@builder.io/qwik";
@@ -8,9 +8,9 @@ import { LauncherStore } from "../launcher/store";
 
 
 export const WebLens = component$<WebLensProps>((props?: WebLensProps) => {
-  /* const lens_store = props?.store ?? useStore<WebLensStore>({
-   *   launcher: useStore<LauncherStore>({ state: 'collapsed' })
-   * }); */
+  const lens_store = props?.store ?? useStore<WebLensStore>({
+    launcher: useStore<LauncherStore>({ state: 'collapsed' })
+  });
 
   useStyles$(holyGrailStyles);
   useStyles$(compStyles);

@@ -1,3 +1,3 @@
 export type LauncherStore = {
-    launched?: boolean
+    state?: 'expanded' | 'collapsed';
 }

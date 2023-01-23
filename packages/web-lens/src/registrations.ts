@@ -1,4 +1,6 @@
+import { WebLensStore } from "./web-lens";
 import { WebLensWebComponent } from "./custom";
+import { toggle_lens_accessibility } from "./init/toggle";
 
 export const register_custom = <TElement extends CustomElementConstructor>(comp_name: string, comp_type: TElement) => {
     const tag_name = (comp_name ?? "").trim();
@@ -9,6 +11,19 @@ export const register_custom = <TElement extends CustomElementConstructor>(comp_
     }
 }
 
-export const do_registrations = () => {
+export const do_registrations = (lens_store: WebLensStore) => {
+
+    (globalThis as any)['embodium'] = {
+        ...(globalThis as any)['embodium'],
+        ['web-lens']: {
+            ...(globalThis as any)['embodium']?.['web-lens'],
+            toggle_lens: () => {
+                // lens_store.accessible = !lens_store.accessible;
+                toggle_lens_accessibility(lens_store);
+            }
+        }
+    }
+
+    // Custom Element Registrations
     register_custom("web-lens", WebLensWebComponent);
 }

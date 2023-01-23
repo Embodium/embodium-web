@@ -1,44 +1,42 @@
-import { WebLens } from "../web-lens";
 import { handle_event } from "./events";
+import { WebLens, WebLensStore } from "../web-lens";
 import { do_registrations } from "../registrations";
 import {
   $, component$, useClientEffect$,
-  useOnWindow, useStore, createContext, useContextProvider
+  useOnWindow, createContext, useContextProvider, useStore
 } from "@builder.io/qwik";
+import { LauncherStore } from "../launcher/store";
+import { toggle_lens_accessibility } from "./toggle";
 
 export const weblens_context = createContext("embodium_web-lens");
 
 export const WebLensInit = component$<WebLensInitProps>((props?: WebLensInitProps) => {
-  const accessibility_state_store = useStore({ hidden: true });
+  const lens_store = useStore<WebLensStore>({
+    accessible: false,
+    launcher: useStore<LauncherStore>({
+      state: 'collapsed'
+    })
+  });
 
-  useContextProvider(weblens_context, { accessibility: { state_store: accessibility_state_store } });
+  useContextProvider(weblens_context, { lens_store });
 
   useOnWindow('keyup', $((event: Event) => {
-    handle_event(accessibility_state_store, event);
+    handle_event(lens_store, event);
   }));
 
   const onClose$ = $(() => {
-    if (!accessibility_state_store?.hidden) {
-      accessibility_state_store.hidden = true;
+    if (lens_store) {
+      lens_store.accessible = false;
     }
   });
 
   useClientEffect$(() => {
-    do_registrations();
-    (globalThis as any)['embodium'] = {
-      ...(globalThis as any)['embodium'],
-      ['web-lens']: {
-        ...(globalThis as any)['embodium']?.['web-lens'],
-        toggle_lens: () => {
-          accessibility_state_store.hidden = !accessibility_state_store?.hidden;
-        }
-      }
-    }
+    do_registrations(lens_store);
   });
 
   return <>
-    <web-lens id="web-lens" class={accessibility_state_store.hidden ? "hidden" : ""}>
-      {!accessibility_state_store?.hidden &&
+    <web-lens id="web-lens" class={!lens_store.accessible ? "hidden" : ""}>
+      {lens_store.accessible &&
         <WebLens onClose$={onClose$} container={props?.container} />}
     </web-lens>
   </>
