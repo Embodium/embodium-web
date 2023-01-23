@@ -21,7 +21,7 @@ export const WebLensInit = component$<WebLensInitProps>((props?: WebLensInitProp
   useContextProvider(weblens_context, { lens_store });
 
   useOnWindow('keyup', $((event: Event) => {
-    handle_event(lens_store, event);
+    handle_event(event, lens_store);
   }));
 
   const onClose$ = $(() => {
