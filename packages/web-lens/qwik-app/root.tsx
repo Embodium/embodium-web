@@ -1,4 +1,5 @@
-import { toggle_lens, WebLensInit } from "../src";
+import root_styles from "./styles.scss?inline";
+import { LensTrigger, WebLensInit } from "../src";
 import { component$, useClientEffect$, useStore, useStyles$ } from "@builder.io/qwik";
 
 export default component$(() => {
@@ -7,13 +8,7 @@ export default component$(() => {
     store.container = document.body;
   });
 
-  useStyles$(`.trigger {
-    text-align: center;
-  }
-  .trigger-action {
-    padding: 2rem;
-    font-size: xx-large;
-  }`);
+  useStyles$(root_styles);
 
   return (
     <>
@@ -22,8 +17,8 @@ export default component$(() => {
         <title>Web Lens</title>
       </head>
       <body>
-        <div class="trigger">
-          <button class="trigger-action" onClick$={() => toggle_lens()} autofocus>Launch Lens</button>
+        <div class="lens-trigger" title="Launch Lens">
+          <LensTrigger />
         </div>
         <WebLensInit container={store.container} />
       </body>

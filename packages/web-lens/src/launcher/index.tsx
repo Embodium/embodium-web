@@ -16,10 +16,14 @@ export const Launcher = component$<LauncherProps>((props?: LauncherProps) => {
   return <>
     <div class="wl-launcher">
       {/* Expand Action */}
-      <Expander state={launcher_store.state} onClick$={change_launched$} />
+      <span class="wl-launcher-action">
+        {/* <Expander state={launcher_store.state} onClick$={change_launched$} /> */}
+      </span>
 
       {/* close action */}
-      <LensCloser />
+      <span class="wl-launcher-action">
+        {/* <LensCloser /> */}
+      </span>
     </div>
   </>
 });

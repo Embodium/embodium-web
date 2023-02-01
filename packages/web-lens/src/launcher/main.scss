@@ -1,15 +1,22 @@
 .wl-launcher {
-    // display: flex;
-    // justify-content: end;
-    // align-items: end;
+    
 }
 
-.circular-container {
-  // font-size: xx-large;
-  // border-radius: 50%;
-  // margin: 0.5em;
-  // margin-left: 0;
-  // border: 3px solid;
-  // border-style: transparent;
-  // position: relative;
+.wl-launcher-action {
+
+    /* sizing: extrinsic/intrinsic */
+
+    /* content */
+    background-color: yellow;
+    /* overflow */
+    overflow: visible;
+    
+    /* margin */
+    margin: 0.5em 0 0.5em 0.5em;
+
+    /* border */
+    // border-style: solid;
+
+    /* padding */
+    padding: 1em;
 }
